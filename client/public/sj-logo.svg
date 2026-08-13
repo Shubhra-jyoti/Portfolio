@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background shape -->
+  <rect width="100" height="100" rx="20" fill="#0a0a0a" />
+
+  <!-- Outer Red "Glow" -->
+  <text x="50" y="50" dy=".35em" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" font-weight="900" fill="none" stroke="#ef4444" stroke-width="8">SJ</text>
+
+  <!-- Inner Bright Core -->
+  <text x="50" y="50" dy=".35em" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" font-weight="900" fill="#fecaca">SJ</text>
+</svg>
