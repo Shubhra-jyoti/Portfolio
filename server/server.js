@@ -28,7 +28,7 @@ app.use(cors({
 }));
 
 // Handle preflight OPTIONS requests
-app.options('*', cors());
+app.options('{*path}', cors());
 
 app.use(express.json());
 
