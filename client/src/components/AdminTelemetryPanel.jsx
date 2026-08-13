@@ -19,7 +19,7 @@ const AdminTelemetryPanel = () => {
 
   const fetchStats = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/stats');
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/stats`);
       const payload = await response.json();
       setStats(payload.data || []);
       setIsLoading(false);
@@ -42,7 +42,7 @@ const AdminTelemetryPanel = () => {
     const token = localStorage.getItem('adminToken');
 
     try {
-      const response = await fetch('http://localhost:5000/api/stats/save', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/stats/save`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ const AdminTelemetryPanel = () => {
     const token = localStorage.getItem('adminToken');
     
     try {
-      const response = await fetch(`http://localhost:5000/api/stats/${semesterNum}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/stats/${semesterNum}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

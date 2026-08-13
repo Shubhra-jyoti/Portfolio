@@ -17,7 +17,7 @@ const ProfilePage = () => {
   useEffect(() => {
     const fetchOperatorData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/operator');
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/operator`);
         const payload = await response.json();
         setOperatorData(payload.data);
       } catch (error) {

@@ -24,7 +24,7 @@ const AdminProjectsPanel = () => {
     try {
       // 1. Fetch GitHub Repos
       // 1. Fetch GitHub Repos
-      const repoRes = await fetch('http://localhost:5000/api/projects');
+      const repoRes = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/projects`);
       const repoPayload = await repoRes.json();
       
       // Extract the actual array from the "data" key
@@ -33,7 +33,7 @@ const AdminProjectsPanel = () => {
       console.log("RAW REPO DATA FROM BACKEND:", repoData); 
 
       // 2. Fetch Overrides
-      const metaRes = await fetch('http://localhost:5000/api/projects/meta');
+      const metaRes = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/projects/meta`);
       const metaPayload = await metaRes.json();
       
       const metaData = metaPayload.data || metaPayload;
@@ -91,7 +91,7 @@ const AdminProjectsPanel = () => {
     const token = localStorage.getItem('adminToken');
 
     try {
-      const response = await fetch('http://localhost:5000/api/projects/meta/save', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/projects/meta/save`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

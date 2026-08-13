@@ -23,8 +23,8 @@ const HomePage = () => {
     const fetchCoreSystems = async () => {
       try {
         const [operatorRes, statsRes] = await Promise.all([
-          fetch('http://localhost:5000/api/operator'),
-          fetch('http://localhost:5000/api/stats')
+          fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/operator`),
+          fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/stats`)
         ]);
         
         const operatorPayload = await operatorRes.json();

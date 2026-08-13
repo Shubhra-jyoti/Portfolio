@@ -21,7 +21,7 @@ const AdminOperatorPanel = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/operator');
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/operator`);
       const payload = await response.json();
       
       const data = payload.data || {};
@@ -89,7 +89,7 @@ const AdminOperatorPanel = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/api/operator/save', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/operator/save`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

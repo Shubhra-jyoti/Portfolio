@@ -26,7 +26,7 @@ const ProjectsPage = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/projects');
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/projects`);
         const data = await response.json();
         if (data.status === 'success' && Array.isArray(data.data)) {
           setProjects(data.data);
